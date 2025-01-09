@@ -2,10 +2,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   const socialLinks = [
     { icon: 'github', url: 'https://github.com/yourusername' },
-    { icon: 'twitter', url: 'https://twitter.com/yourusername' },
+    { icon: 'twitter', url: 'https://twitter.com/noataklol' },
     { icon: 'instagram', url: 'https://instagram.com/yourusername' },
     { icon: 'linkedin', url: 'https://linkedin.com/in/yourusername' },
-    { icon: 'mail', url: 'mailto:your@email.com' }
+    { icon: 'mail', url: 'mailto:noataklol@gmail.com' }
   ];
 
   const favorites = {
