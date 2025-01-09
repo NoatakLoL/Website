@@ -36,3 +36,67 @@
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
     </iframe>
 </div>
+<!-- Games Section -->
+<div id="games-section" style="padding: 20px; background-color: #f9f9f9;">
+    <h2 style="text-align: center; margin-bottom: 20px;">Favorite Games</h2>
+    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+        <!-- Game 1 -->
+        <div style="position: relative; width: 150px; height: 200px;">
+            <img src="game1.jpg" alt="Game 1" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); color: #fff; 
+                        display: flex; flex-direction: column; justify-content: center; align-items: center; 
+                        opacity: 0; border-radius: 8px; transition: opacity 0.3s;">
+                <p>Favorite Character: [Name]</p>
+                <p>Rank: [Your Rank]</p>
+            </div>
+        </div>
+        <!-- Add more games as needed -->
+    </div>
+</div>
+
+<!-- Movies Section -->
+<div id="movies-section" style="padding: 20px; background-color: #fff;">
+    <h2 style="text-align: center; margin-bottom: 20px;">Favorite Movies</h2>
+    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+        <!-- Movie 1 -->
+        <div style="position: relative; width: 150px; height: 200px;">
+            <img src="movie1.jpg" alt="Movie 1" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); color: #fff; 
+                        display: flex; flex-direction: column; justify-content: center; align-items: center; 
+                        opacity: 0; border-radius: 8px; transition: opacity 0.3s;">
+                <p>Favorite Character: [Name]</p>
+            </div>
+        </div>
+        <!-- Add more movies as needed -->
+    </div>
+</div>
+
+<!-- TV Shows Section -->
+<div id="tv-shows-section" style="padding: 20px; background-color: #f9f9f9;">
+    <h2 style="text-align: center; margin-bottom: 20px;">Favorite TV Shows</h2>
+    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+        <!-- TV Show 1 -->
+        <div style="position: relative; width: 150px; height: 200px;">
+            <img src="tvshow1.jpg" alt="TV Show 1" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); color: #fff; 
+                        display: flex; flex-direction: column; justify-content: center; align-items: center; 
+                        opacity: 0; border-radius: 8px; transition: opacity 0.3s;">
+                <p>Favorite Character: [Name]</p>
+            </div>
+        </div>
+        <!-- Add more TV shows as needed -->
+    </div>
+</div>
+
+<script>
+    // Hover Effect for Netflix-Style Cards
+    document.querySelectorAll("#games-section div, #movies-section div, #tv-shows-section div").forEach((card) => {
+        const overlay = card.querySelector("div");
+        card.addEventListener("mouseenter", () => {
+            overlay.style.opacity = 1;
+        });
+        card.addEventListener("mouseleave", () => {
+            overlay.style.opacity = 0;
+        });
+    });
+</script>
