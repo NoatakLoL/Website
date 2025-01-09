@@ -1,135 +1,70 @@
-// main.js
-document.addEventListener('DOMContentLoaded', () => {
-  const socialLinks = [
-    { icon: 'github', url: 'https://github.com/yourusername' },
-    { icon: 'twitter', url: 'https://twitter.com/noataklol' },
-    { icon: 'instagram', url: 'https://instagram.com/yourusername' },
-    { icon: 'linkedin', url: 'https://linkedin.com/in/yourusername' },
-    { icon: 'mail', url: 'mailto:noataklol@gmail.com' }
-  ];
-
-  const favorites = {
-    games: [
-      { title: 'The Legend of Zelda: BOTW', year: '2017', rating: '10/10', image: '/api/placeholder/300/169' },
-      { title: 'Red Dead Redemption 2', year: '2018', rating: '9.5/10', image: '/api/placeholder/300/169' },
-      { title: 'Elden Ring', year: '2022', rating: '9.8/10', image: '/api/placeholder/300/169' },
-      { title: 'God of War', year: '2018', rating: '9.7/10', image: '/api/placeholder/300/169' },
-      { title: 'Cyberpunk 2077', year: '2020', rating: '9.0/10', image: '/api/placeholder/300/169' },
-      { title: 'Ghost of Tsushima', year: '2020', rating: '9.3/10', image: '/api/placeholder/300/169' }
-    ],
-    movies: [
-      { title: 'Inception', year: '2010', rating: '9.5/10', image: '/api/placeholder/300/169' },
-      { title: 'The Dark Knight', year: '2008', rating: '10/10', image: '/api/placeholder/300/169' },
-      { title: 'Pulp Fiction', year: '1994', rating: '9.8/10', image: '/api/placeholder/300/169' },
-      { title: 'Interstellar', year: '2014', rating: '9.4/10', image: '/api/placeholder/300/169' },
-      { title: 'The Matrix', year: '1999', rating: '9.6/10', image: '/api/placeholder/300/169' },
-      { title: 'Goodfellas', year: '1990', rating: '9.7/10', image: '/api/placeholder/300/169' }
-    ],
-    shows: [
-      { title: 'Breaking Bad', years: '2008-2013', rating: '10/10', image: '/api/placeholder/300/169' },
-      { title: 'The Wire', years: '2002-2008', rating: '9.8/10', image: '/api/placeholder/300/169' },
-      { title: 'Stranger Things', years: '2016-present', rating: '9.5/10', image: '/api/placeholder/300/169' },
-      { title: 'The Sopranos', years: '1999-2007', rating: '9.9/10', image: '/api/placeholder/300/169' },
-      { title: 'Game of Thrones', years: '2011-2019', rating: '9.4/10', image: '/api/placeholder/300/169' },
-      { title: 'Better Call Saul', years: '2015-2022', rating: '9.7/10', image: '/api/placeholder/300/169' }
-    ]
-  };
-
-  // Create social links
-  const createSocialLinks = () => {
-    const socialContainer = document.querySelector('.social-links');
-    socialLinks.forEach(link => {
-      const a = document.createElement('a');
-      a.href = link.url;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      a.className = 'text-white hover:text-white/70 transition-duration-300';
-      a.innerHTML = `<i class="icon-${link.icon}"></i>`;
-      socialContainer.appendChild(a);
-    });
-  };
-
-  // Create scrollable row
-  const createScrollableRow = (title, items, icon) => {
-    const container = document.createElement('div');
-    container.className = 'relative group mb-12';
-
-    // Add title
-    container.innerHTML = `
-      <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2 px-4">
-        <i class="icon-${icon}"></i>${title}
-      </h2>
-    `;
-
-    // Add scroll buttons
-    const leftButton = document.createElement('button');
-    leftButton.className = 'scroll-button left hidden';
-    leftButton.innerHTML = '&lt;';
-
-    const rightButton = document.createElement('button');
-    rightButton.className = 'scroll-button right hidden';
-    rightButton.innerHTML = '&gt;';
-
-    // Add scrollable content
-    const scrollContainer = document.createElement('div');
-    scrollContainer.className = 'scroll-container';
-
-    // Add items
-    items.forEach(item => {
-      const itemDiv = document.createElement('div');
-      itemDiv.className = 'scroll-item';
-      itemDiv.innerHTML = `
-        <div class="item-card">
-          <img src="${item.image}" alt="${item.title}" />
-          <div class="item-overlay">
-            <h3>${item.title}</h3>
-            <p>${item.year || item.years} • ${item.rating}</p>
-          </div>
-        </div>
-      `;
-      scrollContainer.appendChild(itemDiv);
-    });
-
-    // Add event listeners for scrolling
-    leftButton.addEventListener('click', () => {
-      scrollContainer.scrollBy({ left: -300, behavior: 'smooth' });
-    });
-
-    rightButton.addEventListener('click', () => {
-      scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
-    });
-
-    // Show/hide scroll buttons on hover
-    container.addEventListener('mouseenter', () => {
-      leftButton.classList.remove('hidden');
-      rightButton.classList.remove('hidden');
-    });
-
-    container.addEventListener('mouseleave', () => {
-      leftButton.classList.add('hidden');
-      rightButton.classList.add('hidden');
-    });
-
-    container.appendChild(leftButton);
-    container.appendChild(rightButton);
-    container.appendChild(scrollContainer);
-
-    return container;
-  };
-
-  // Initialize the page
-  const init = () => {
-    createSocialLinks();
-
-    // Create favorite sections
-    const favoritesContainer = document.querySelector('.favorites-container');
-    favoritesContainer.appendChild(createScrollableRow('Favorite Games', favorites.games, 'gamepad'));
-    favoritesContainer.appendChild(createScrollableRow('Favorite Movies', favorites.movies, 'film'));
-    favoritesContainer.appendChild(createScrollableRow('Favorite Shows', favorites.shows, 'tv'));
-
-    // Update copyright year
-    document.querySelector('.copyright-year').textContent = new Date().getFullYear();
-  };
-
-  init();
+// Dynamic Content Loading
+document.addEventListener("DOMContentLoaded", () => {
+    // Load games, movies, and TV shows dynamically
+    loadContent("games-section", "data/games.json");
+    loadContent("movies-section", "data/movies.json");
+    loadContent("tv-shows-section", "data/tvshows.json");
 });
+
+// Function to load content dynamically
+function loadContent(sectionId, dataFile) {
+    fetch(dataFile)
+        .then((response) => response.json())
+        .then((data) => {
+            const section = document.getElementById(sectionId);
+            const container = section.querySelector("div");
+            container.innerHTML = ""; // Clear default content
+
+            data.forEach((item) => {
+                const card = document.createElement("div");
+                card.style.position = "relative";
+                card.style.width = "150px";
+                card.style.height = "200px";
+                card.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); color: #fff;
+                        display: flex; flex-direction: column; justify-content: center; align-items: center;
+                        opacity: 0; border-radius: 8px; transition: opacity 0.3s;">
+                        <p>${item.details}</p>
+                    </div>
+                `;
+                card.addEventListener("mouseenter", () => {
+                    card.querySelector("div").style.opacity = 1;
+                });
+                card.addEventListener("mouseleave", () => {
+                    card.querySelector("div").style.opacity = 0;
+                });
+                container.appendChild(card);
+            });
+        })
+        .catch((error) => console.error(`Failed to load ${dataFile}:`, error));
+}
+
+// Spotify Integration
+function updateSpotifyEmbed() {
+    fetch("https://api.spotify.com/v1/me/player/currently-playing", {
+        headers: {
+            Authorization: `Bearer YOUR_SPOTIFY_ACCESS_TOKEN`, // Replace with your token
+        },
+    })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Failed to fetch currently playing song");
+            }
+            return response.json();
+        })
+        .then((data) => {
+            const spotifySection = document.getElementById("spotify-section");
+            spotifySection.innerHTML = `
+                <iframe src="https://open.spotify.com/embed/track/${data.item.id}" 
+                    width="100%" height="150" frameborder="0" style="border-radius: 12px;"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+                </iframe>
+            `;
+        })
+        .catch((error) => console.error("Spotify API Error:", error));
+}
+
+// Call updateSpotifyEmbed every 30 seconds to refresh the embed
+setInterval(updateSpotifyEmbed, 30000);
+updateSpotifyEmbed();
