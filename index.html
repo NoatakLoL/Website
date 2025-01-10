@@ -1,108 +1,196 @@
-<!-- Profile Picture -->
-<div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: inline-block;">
-    <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-        <source src="Website_Images/pfp.gif" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updated Website</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 20px;
+            background-color: black;
+            border: 10px solid;
+            border-image-source: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            border-image-slice: 1;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
 
-    <!-- Pronouns -->
-    <p style="margin: 10px 0; font-size: 18px; color: #555;">noatak ○ he/him</p>
+        .section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-    <!-- Bio -->
-    <p style="font-size: 16px; color: #666;">my bio is here but idk what to say yet :P</p>
+        .section h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
 
-<!-- Social Media Links with Icons Only -->
-<div style="margin-top: 10px; display: flex; justify-content: center; gap: 10px;">
-    <a href="https://x.com/NoatakLoL" target="_blank" style="text-decoration: none;">
-        <i class="fa-brands fa-x-twitter" style="font-size: 30px; color: #1DA1F2;"></i>
-    </a>
-    <a href="https://www.twitch.tv/noataklol" target="_blank" style="text-decoration: none;">
-        <i class="fa-brands fa-twitch" style="font-size: 30px; color: #9146FF;"></i>
-    </a>
-    <a href="https://www.tiktok.com/@noataklol" target="_blank" style="text-decoration: none;">
-        <i class="fa-brands fa-tiktok" style="font-size: 30px; color: #000000;"></i>
-    </a>
-    <a href="discordapp.com/users/918195196104151051" target="_blank" style="text-decoration: none;">
-        <i class="fa-brands fa-discord" style="font-size: 30px; color: #5865F2;"></i>
-    </a>
-</div>
+        /* Profile Picture */
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+        }
 
-<!-- Spotify Section -->
-<div id="spotify-section" style="text-align: center; padding: 20px; background-color: #e8f5e9;">
-    <h2 style="margin-bottom: 20px; color: #1db954;">Currently Listening</h2>
+        .profile-picture video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-    <!-- Spotify Embed -->
-    <iframe src="https://6klabs.com/widget/spotify/73af52b369ca4c0a609255dcd8c6240ba81f3d0a8b00c271f7c342fe12cd1afd" 
-        width="100%" 
-        height="150" 
-        frameborder="0" 
-        style="border-radius: 12px;" 
-        allowtransparency="true" 
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-    </iframe>
-</div>
+        /* Social Media Icons */
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
 
-<!-- Games Section -->
-<div id="games-section" style="padding: 20px; background-color: #f9f9f9;">
-    <h2 style="text-align: center; margin-bottom: 20px;">Favorite Games</h2>
-    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-        <!-- Game 1 -->
-        <div style="position: relative; width: 150px; height: 200px;">
-            <img src="game1.jpg" alt="Game 1" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;">
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); color: #fff; 
-                        display: flex; flex-direction: column; justify-content: center; align-items: center; 
-                        opacity: 0; border-radius: 8px; transition: opacity 0.3s;">
-                <p>Favorite Character: [Name]</p>
-                <p>Rank: [Your Rank]</p>
+        .social-media a {
+            font-size: 30px;
+            color: white;
+        }
+
+        .social-media a:hover {
+            opacity: 0.7;
+        }
+
+        /* Spotify Embed */
+        iframe {
+            border-radius: 12px;
+        }
+
+        /* Netflix-Style Cards */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            position: relative;
+            width: 150px;
+            height: 200px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .card:hover .overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Top Section -->
+        <div class="section" id="top-section">
+            <div class="profile-picture">
+                <video autoplay loop muted playsinline>
+                    <source src="Website_Images/pfp.gif" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <p>noatak ○ he/him</p>
+            <p>my bio is here but idk what to say yet :P</p>
+            <div class="social-media">
+                <a href="https://x.com/NoatakLoL" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.twitch.tv/noataklol" target="_blank"><i class="fa-brands fa-twitch"></i></a>
+                <a href="https://www.tiktok.com/@noataklol" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://discordapp.com/users/918195196104151051" target="_blank"><i class="fa-brands fa-discord"></i></a>
+            </div>
+        </div>
+
+        <!-- Spotify Section -->
+        <div class="section" id="spotify-section">
+            <h2>Currently Listening</h2>
+            <iframe src="https://6klabs.com/widget/spotify/73af52b369ca4c0a609255dcd8c6240ba81f3d0a8b00c271f7c342fe12cd1afd" 
+                width="100%" 
+                height="150" 
+                frameborder="0" 
+                allowtransparency="true" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+            </iframe>
+        </div>
+
+        <!-- Games Section -->
+        <div class="section" id="games-section">
+            <h2>Favorite Games</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="game1.jpg" alt="Game 1">
+                    <div class="overlay">
+                        <p>Favorite Character: [Name]</p>
+                        <p>Rank: [Your Rank]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Movies Section -->
+        <div class="section" id="movies-section">
+            <h2>Favorite Movies</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="movie1.jpg" alt="Movie 1">
+                    <div class="overlay">
+                        <p>Favorite Character: [Name]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TV Shows Section -->
+        <div class="section" id="tv-shows-section">
+            <h2>Favorite TV Shows</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="tvshow1.jpg" alt="TV Show 1">
+                    <div class="overlay">
+                        <p>Favorite Character: [Name]</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-<!-- Movies Section -->
-<div id="movies-section" style="padding: 20px; background-color: #fff;">
-    <h2 style="text-align: center; margin-bottom: 20px;">Favorite Movies</h2>
-    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-        <div style="position: relative; width: 150px; height: 200px;">
-            <img src="movie1.jpg" alt="Movie 1" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;">
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); color: #fff; 
-                        display: flex; flex-direction: column; justify-content: center; align-items: center; 
-                        opacity: 0; border-radius: 8px; transition: opacity 0.3s;">
-                <p>Favorite Character: [Name]</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- TV Shows Section -->
-<div id="tv-shows-section" style="padding: 20px; background-color: #f9f9f9;">
-    <h2 style="text-align: center; margin-bottom: 20px;">Favorite TV Shows</h2>
-    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-        <div style="position: relative; width: 150px; height: 200px;">
-            <img src="tvshow1.jpg" alt="TV Show 1" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;">
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); color: #fff; 
-                        display: flex; flex-direction: column; justify-content: center; align-items: center; 
-                        opacity: 0; border-radius: 8px; transition: opacity 0.3s;">
-                <p>Favorite Character: [Name]</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    // Hover Effect for Netflix-Style Cards
-    document.querySelectorAll("#games-section div, #movies-section div, #tv-shows-section div").forEach((card) => {
-        const overlay = card.querySelector("div");
-        card.addEventListener("mouseenter", () => {
-            overlay.style.opacity = 1;
-        });
-        card.addEventListener("mouseleave", () => {
-            overlay.style.opacity = 0;
-        });
-    });
-</script>
-
-<!-- Include Font Awesome for Icons -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</body>
+</html>
