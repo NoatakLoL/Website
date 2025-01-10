@@ -78,19 +78,21 @@
         }
 
         /* Netflix-Style Cards */
-        .card-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
+        .scroll-container {
+            position: relative;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 10px;
         }
 
-        .card {
+        .scroll-container .card {
+            display: inline-block;
             position: relative;
             width: 150px;
             height: 200px;
             border-radius: 8px;
             overflow: hidden;
+            margin-right: 10px;
         }
 
         .card img {
@@ -155,7 +157,7 @@
         <!-- Games Section -->
         <div class="section" id="games-section">
             <h2>Favorite Games</h2>
-            <div class="card-container">
+            <div class="scroll-container">
                 <div class="card">
                     <img src="Website_Images/Games/LoL.png" alt="League of Legends">
                 </div>
@@ -165,13 +167,22 @@
                 <div class="card">
                     <img src="Website_Images/Games/SMG2.jpg" alt="Super Mario Galaxy 2">
                 </div>
+                <div class="card">
+                    <img src="Website_Images/Games/Wizard101.jpg" alt="Wizard101">
+                </div>
+                <div class="card">
+                    <img src="Website_Images/Games/Overwatch.jpg" alt="Overwatch">
+                </div>
+                <div class="card">
+                    <img src="Website_Images/Games/Minecraft.jpg" alt="Minecraft">
+                </div>
             </div>
         </div>
 
         <!-- Movies Section -->
         <div class="section" id="movies-section">
             <h2>Favorite Movies</h2>
-            <div class="card-container">
+            <div class="scroll-container">
                 <div class="card">
                     <img src="Website_Images/Movies/AStarIsBorn.jpg" alt="A Star is Born">
                 </div>
@@ -184,13 +195,22 @@
                 <div class="card">
                     <img src="Website_Images/Movies/Wicked.jpg" alt="Wicked">
                 </div>
+                <div class="card">
+                    <img src="Website_Images/Movies/EEATO.jpg" alt="Everything Everywhere All at Once">
+                </div>
+                <div class="card">
+                    <img src="Website_Images/Movies/WreckItRalph.png" alt="Wreck-It Ralph">
+                </div>
+                <div class="card">
+                    <img src="Website_Images/Movies/GoneGirl.png" alt="Gone Girl">
+                </div>
             </div>
         </div>
 
         <!-- TV Shows Section -->
         <div class="section" id="tv-shows-section">
             <h2>Favorite TV Shows</h2>
-            <div class="card-container">
+            <div class="scroll-container">
                 <div class="card">
                     <img src="Website_Images/Shows/ATLA.jpg" alt="Avatar: The Last Airbender">
                 </div>
